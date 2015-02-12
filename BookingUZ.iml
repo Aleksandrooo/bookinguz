@@ -9,6 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="libs" level="project" />
     <orderEntry type="library" name="selenium-2.44" level="project" />
+    <orderEntry type="library" name="selenium-2.441" level="project" />
+    <orderEntry type="library" name="libs1" level="project" />
   </component>
 </module>
-

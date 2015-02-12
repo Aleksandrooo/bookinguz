@@ -9,19 +9,16 @@ import org.openqa.selenium.WebElement;
 
 public class TestHelper {
 
-    public static WebElement waitElement(WebDriver webDriver,  String path) throws InterruptedException {
+    public static WebElement waitElement(String path) throws InterruptedException {
         int timeout = 30000, timepassed = 0, s;
         while(timepassed < timeout) {
-            s = webDriver.findElements(By.xpath(path)).size();
-            if (webDriver.findElements(By.xpath(path)).size() > 0) {
-                //if (s > 0) {
-                WebElement we = webDriver.findElements(By.xpath(path)).get(0);
-                //System.out.println(we.getAttribute("value"));
+            s = BaseTest.webDriver.findElements(By.xpath(path)).size();
+            if (BaseTest.webDriver.findElements(By.xpath(path)).size() > 0) {
+                WebElement we = BaseTest.webDriver.findElements(By.xpath(path)).get(0);
                 return we;
             }
             Thread.sleep(100);
             timepassed += 100;
-            //System.out.println(timepassed);
         }
         Assert.fail();
         return null;
