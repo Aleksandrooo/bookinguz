@@ -56,5 +56,12 @@ public class BookingUzTests extends BaseTest{
         testPassed = true;
     }
 
+    @Test
+    public void changeDepartureDate() throws InterruptedException, IOException {
+        SearchPage.setDate("March 2015", "8");
+        Assert.assertEquals("03.08.2015", SearchPage.getDepartureDatefromBtnSearch());
+        testPassed = true;
+    }
+
 
 }

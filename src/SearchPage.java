@@ -63,6 +63,11 @@ public class SearchPage {
         //Select your destination from the drop down list
     }
 
+    public static String getDepartureDatefromBtnSearch() throws InterruptedException {
+        //Thread.sleep(2000);
+        return BaseTest.webDriver.findElement(By.xpath(clickSearchXpath + "/span")).getText();
+    }
+
 
 //    private static Map<String, String> fieldNameOsago = new HashMap<String, String>(){{
 //        put("я хочу застраховать", transportXpath);
