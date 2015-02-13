@@ -5,7 +5,9 @@ import org.junit.runners.JUnit4;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by user on 2/11/15.
@@ -37,13 +39,33 @@ public class BookingUzTests extends BaseTest{
     }
 
     @Test
+    public void checkVariantsFrom() throws InterruptedException, IOException {
+        List<String> st =new ArrayList<String>();
+        st.add("Kyaniv Pereval");
+        st.add("Kyanivka");
+        st.add("Kybyntsi");
+        st.add("Kychyranky");
+        st.add("Kyiv");
+        st.add("Kyivska Rusanivka");
+        st.add("Kyj");
+        st.add("Kykshor");
+        st.add("Kyn");
+        st.add("Kynnu");
+        SearchPage.assertCheckVariantsStation("From", "Ky", st);
+        //SearchPage.AssertContentOfErrorMessage();
+        //SearchPage.ClickOKOfErrorMessage();
+        Thread.sleep(5000);
+        testPassed = true;
+    }
+
+    @Test
     public void checkCommonFieldOnSearchPage() throws InterruptedException, IOException {
-//        SearchPage.checkFrom();
-//        SearchPage.checkTo();
-//        SearchPage.checkDepartureDate();
-//        SearchPage.checkDepartureTime();
-//        SearchPage.checkRoundTrip();
-//        SearchPage.checkBtnSearch();
+        SearchPage.checkFrom();
+        SearchPage.checkTo();
+        SearchPage.checkDepartureDate();
+        SearchPage.checkDepartureTime();
+        SearchPage.checkRoundTrip();
+        SearchPage.checkBtnSearch();
         testPassed = true;
     }
 
@@ -51,7 +73,7 @@ public class BookingUzTests extends BaseTest{
     public void checkTodayDay() throws InterruptedException, IOException {
 //        SearchPage.getDepartureDate();
         Date date = new Date();
-        SimpleDateFormat today = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat today = new SimpleDateFormat("MM.dd.yyyy");
         Assert.assertEquals(today.format(date), SearchPage.getDepartureDate());
         testPassed = true;
     }
